@@ -35,4 +35,55 @@
 ‎    print("Error: input.txt not found. Please ensure it's in the directory.")
 ‎except Exception as e:
 ‎    print(f"An error occurred: {e}")
+
+
+#Week 3 Assignment/Object Oriented Programming 
+#‎Create a class representing anything you like (a Smartphone, Book, or even a Superhero!).
+‎
+#‎Add attributes and methods to bring the class to life!
+‎
+#‎Use constructors to initialize each object with unique values.
+‎
+#‎Add an inheritance layer to explore polymorphism or encapsulation.
+
+
+Answer:
+‎#source code
+‎class Lion:
+‎    def speak(self):
+‎        return "Roar!"
+‎
+‎class Cow:
+‎    def speak(self):
+‎        return "Moow!"
+‎
+‎# Polymorphism in action
+‎for animal in [Lion( ), Cow( )]:
+‎    print(animal.speak( ) )
+‎
+‎output:
+‎Roar!
+‎Moow!
+‎
+‎#Answer
+‎class SecretBook:
+‎    def __init__(self):
+‎        self.__books = 10  
+‎# Private attribute
+‎
+‎    def take_books(self):
+‎        if self.__books > 0:
+‎            self.__books -= 2
+‎            print("Two books taken!")
+‎        else:
+‎            print("No book left!")
+‎
+‎Book = SecretBook( )
+‎book.take_book( )
+‎
+‎output:
+‎Two books taken!
+‎
+‎
+‎
 ‎
