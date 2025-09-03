@@ -85,5 +85,83 @@ Answer:
 ‎Two books taken!
 ‎
 ‎
+#Assignment on Analyzing Data with Pandas and Visualizing Results with Matplotlib 
+‎‎#source code:
+‎#Task1
+‎#loading the dataset. The Iris dataset is loaded from a CSV file using pd.read_csv().
+‎
+‎    import pandas as pd
+‎    import matplotlib.pyplot as plt
+‎    import seaborn as sns
+‎
+‎    # Load the Iris dataset from a URL
+‎    url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+‎    column_names = ["sepal_length", "sepal_width", "petal_length", "petal_width", "species"]
+‎    df = pd.read_csv(url, names=column_names)
+‎
+‎#display first row
+‎    print("First 5 rows of the dataset:")
+‎    print(df.head())
+‎
+‎#Explore the structure (data types and missing values)
+‎#Clean the dataset: For the Iris dataset, there are typically no missing values. If missing values were present, they could be handled by df.dropna() to drop rows with missing values or df.fillna(value) to fill them.
+‎
+‎    print("\nDataset Information:")
+‎    print(df.info())
+‎    print("\nMissing values per column:")
+‎    print(df.isnull().sum())
+‎
+‎
+‎#Task2
+‎#Basic Data Analysis
+‎#Compute basic statistics
+‎#Identify patterns: The analysis of the Iris dataset reveals that different species of Iris flowers have distinct average sepal and petal measurements. For example, Iris-setosa generally has shorter petal lengths compared to Iris-versicolor and Iris-virginica.
+‎
+‎    print("\nBasic statistics of numerical columns:")
+‎    print(df.describe())
+‎
+‎#Performing grouping and mean
+‎    print("\nAverage petal length per species:")
+‎    print(df.groupby('species')['petal_length'].mean())
+‎
+‎#Task3
+‎#Data visualization
+‎    # This is an illustrative example as Iris data is not time-series.
+‎    # For actual time-series, ensure a datetime column exists.
+‎#Line chart (Illustrative, as Iris data is not time-series):
+‎
+‎    plt.figure(figsize=(8, 5))
+‎    df['sepal_length'].plot(kind='line')
+‎    plt.title('Sepal Length Trend (Illustrative)')
+‎    plt.xlabel('Index')
+‎    plt.ylabel('Sepal Length (cm)')
+‎    plt.grid(True)
+‎    plt.show()
+‎
+‎#Bar Chart
+‎    plt.figure(figsize=(8, 5))
+‎    sns.barplot(x='species', y='petal_length', data=df, errorbar=None)
+‎    plt.title('Average Petal Length per Species')
+‎    plt.xlabel('Species')
+‎    plt.ylabel('Average Petal Length (cm)')
+‎    plt.show()
+‎
+‎#Histogram
+‎    plt.figure(figsize=(8, 5))
+‎    sns.histplot(df['sepal_length'], kde=True)
+‎    plt.title('Distribution of Sepal Length')
+‎    plt.xlabel('Sepal Length (cm)')
+‎    plt.ylabel('Frequency')
+‎    plt.show()
+‎
+‎#Scatter plot
+‎    plt.figure(figsize=(8, 5))
+‎    sns.scatterplot(x='sepal_length', y='petal_length', hue='species', data=df)
+‎    plt.title('Sepal Length vs. Petal Length by Species')
+‎    plt.xlabel('Sepal Length (cm)')
+‎    plt.ylabel('Petal Length (cm)')
+‎    plt.legend(title='Species')
+‎    plt.show()
+‎
 ‎
 ‎
